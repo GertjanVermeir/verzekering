@@ -1,0 +1,27 @@
+@import "src/styles/bootstrap";
+
+#Features {
+  .feature-icon {
+    height: 50px;
+    width: 50px;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-icon-euro {
+    background: #F6FFED;
+    color: #52C41A;
+  }
+  .feature-icon-layer {
+    background: #FFF1F0;
+    color: #F5222D;
+  }
+  .feature-icon-chart {
+    background: #E6F7FF;
+    color: #1890FF;
+  }
+}

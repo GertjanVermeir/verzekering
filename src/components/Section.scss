@@ -1,0 +1,17 @@
+.page-section {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  p {
+    color: #8989A2;
+  }
+}
+
+.page-section-gradient {
+  background: linear-gradient(#ffffff, #e2f1ff);
+}

@@ -1,0 +1,9 @@
+@import 'src/styles/bootstrap';
+
+#FormSection {
+  h5 {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: map-get($theme-colors, 'primary');
+  }
+}

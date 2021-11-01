@@ -1,0 +1,36 @@
+// Override default variables before the import
+$body-bg: #000;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+.form-control {
+  background: white !important;
+}
+
+.btn {
+  border-radius: 50px;
+  padding: 8px 15px;
+}
+
+#Triangle {
+  /* THIS IS THE MAGIC: using the directional keywords instead
+     of an angle in the linear gradient property*/
+  background-image: linear-gradient(to left bottom, map-get($theme-colors, 'primary') 0%, map-get($theme-colors, 'primary') 50%, transparent 50%);
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+#TriangleUp {
+  /* THIS IS THE MAGIC: using the directional keywords instead
+     of an angle in the linear gradient property*/
+  background-image: linear-gradient(to right top, map-get($theme-colors, 'primary') 0%, map-get($theme-colors, 'primary') 50%, transparent 50%);
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
