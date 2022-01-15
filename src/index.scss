@@ -1,2 +1,56 @@
 // Import Bootstrap and its default variables
 @import 'styles/bootstrap';
+
+body {
+  background: transparent !important;
+  font-family: "Open Sans", sans-serif;
+}
+
+#MainSection {
+  background-color: #37517e;
+
+  h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+  }
+  h2 {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 50px;
+    font-size: 24px;
+    font-weight: normal;
+    text-transform: none;
+  }
+}
+
+#MainLogo {
+  height: 35px;
+}
+
+.navbar > .container {
+  justify-content: space-between;
+}
+
+.header-moved {
+  background-color: rgba(40, 58, 90, 0.9);
+}
+
+.main-nav {
+  padding: 15px 0 !important;
+
+  .nav-link {
+    color: white !important;
+    font-size: 15px !important;
+    padding: 0.5rem 1rem !important;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .btn-outline-light:hover {
+    background: rgba(#FFF, 0.1);
+  }
+}

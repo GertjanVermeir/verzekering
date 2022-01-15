@@ -6,12 +6,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 60px 0;
+
+  h2 {
+    color: #37517e;
+    font-weight: bold;
+  }
 
   p {
-    color: #8989A2;
+    color: #777777;
   }
 }
 
 .page-section-gradient {
-  background: linear-gradient(#ffffff, #e2f1ff);
+
+  //background: linear-gradient(#ffffff, #e2f1ff);
 }

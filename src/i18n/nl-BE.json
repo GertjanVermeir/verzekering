@@ -1,0 +1,62 @@
+{
+    "url": "www.financieel-adviesburo.be",
+    "about": {
+        "title": "Waarom bij ons vergelijken?",
+        "nav": "Over ons",
+        "text1": "Wij zijn een onafhankelijke verzekeraar gelegen te Aalst. Onze deskundige verzekeraars bekijken uw situatie op maat en niet op basis van een simulatie, zoals verschillende instanties aanbieden. Hierdoor kunnen wij u vaker een scherper tarief aanbieden, maar ook de juiste keuze helpen maken.",
+        "feature1": {
+            "title": "Meer dan 75% return",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas, velit vel dapibus aliquam."
+        },
+        "feature2": {
+            "title": "Beter dan een simulatie",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas, velit vel dapibus aliquam."
+        },
+        "feature3": {
+            "title": "Lorem ipsum dolor sit amet",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas, velit vel dapibus aliquam."
+        }
+    },
+    "form": {
+        "title": "Autoverzekering vergelijken of berekening nieuwe wagen",
+        "nav": "Vergelijken/Berekenen",
+        "mainAction": "Berekening aanvragen",
+        "contact": "Contact",
+        "car": "Auto",
+        "fields": {
+            "firstName": "Voornaam",
+            "lastName": "Achternaam",
+            "birthDate": "Geboortejaar",
+            "postalCode": "Postcode",
+            "contactType": "Telefoon of Email",
+            "carBrand": "Merk",
+            "carType": "Type",
+            "carKilowatt": "Kilowatuur",
+            "carDriversLicenseDate": "Datum rijbewijs",
+            "carHasOmnium": "Heeft u een omnium verzekering",
+            "carAccidents": "Aantal schadegevallen < 5 jaar",
+            "attachments": "Bijlagen",
+            "attachmentsDrag": "Bestanden slepen of",
+            "attachmentsSelect": "selecteren",
+            "attachmentsInfo": "Bij een vergelijking is het belangrijk om uw huidige autoverzekering mee op te sturen.",
+            "attachmentsDrag": "Sleep een bestand of klik hier om een bestand te selecteren",
+            "yes": "Ja",
+            "no": "Neen",
+            "carInfo": "Hoe vollediger u deze gegevens kan doorgeven, kunnen wij een nauwkeurigere berekening maken.",
+            "contactInfo": "We gebruiken deze gegevens om u te contacteren nadat we de vergelijking gemaakt hebben of als we cruciale gegevens ontbreken.",
+            "contactPrivacy": "Uw gegevens worden niet gebruikt voor reclame of enige andere doeleinden. Lees meer over ons",
+            "contactLink": "privacybeleid"
+        }
+    },
+    "contact": {
+        "title": "Andere vragen? Contacteer ons!",
+        "nav": "Contact",
+        "submit": "Opsturen",
+        "message": "Bericht",
+        "name": "Naam",
+        "contact": "Telefoon of Email"
+    },
+    "validation": {
+        "required": "Verplicht veld"
+    }
+}
