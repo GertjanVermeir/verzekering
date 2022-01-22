@@ -29,37 +29,29 @@ const FormBody = ({
   return (
     <>
       <Row className="mb-3">
-        <Col lg="12">
-          <Form.Group as={Col} lg="3" controlId="name">
-            <Form.Label>{t('contact.name')} *</Form.Label>
-            <Form.Control type="text" {...validationProps('name')} />
-            <Form.Control.Feedback type="invalid">
-              {t(errors.name)}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
+        <Form.Group as={Col} lg="6" controlId="name">
+          <Form.Label>{t('contact.name')} *</Form.Label>
+          <Form.Control type="text" {...validationProps('name')} />
+          <Form.Control.Feedback type="invalid">
+            {t(errors.name)}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} lg="6" controlId="contact">
+          <Form.Label>{t('contact.contact')} *</Form.Label>
+          <Form.Control type="text" {...validationProps('contact')} />
+          <Form.Control.Feedback type="invalid">
+            {t(errors.contact)}
+          </Form.Control.Feedback>
+        </Form.Group>
       </Row>
       <Row className="mb-3">
-        <Col lg="12">
-          <Form.Group as={Col} lg="3" controlId="contact">
-            <Form.Label>{t('contact.contact')} *</Form.Label>
-            <Form.Control type="text" {...validationProps('contact')} />
-            <Form.Control.Feedback type="invalid">
-              {t(errors.contact)}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col lg="12">
-          <Form.Group as={Col} lg="3" controlId="message">
-            <Form.Label>{t('contact.message')} *</Form.Label>
-            <Form.Control type="text" {...validationProps('message')} />
-            <Form.Control.Feedback type="invalid">
-              {t(errors.message)}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
+        <Form.Group as={Col} lg="12" controlId="message">
+          <Form.Label>{t('contact.message')} *</Form.Label>
+          <Form.Control as="textarea" rows={6} {...validationProps('message')} />
+          <Form.Control.Feedback type="invalid">
+            {t(errors.message)}
+          </Form.Control.Feedback>
+        </Form.Group>
       </Row>
     </>
   )
@@ -67,40 +59,41 @@ const FormBody = ({
 
 const ContactForm = () => {
   const { t } = useTranslation();
-
   return (
-    <Formik onSubmit={(values, {setSubmitting, resetForm}) => {
-      // When button submits form and form is in the process of submitting, submit button is disabled
-      setSubmitting(true);
+    <div id="ContactForm">
+      <Formik onSubmit={(values, {setSubmitting, resetForm}) => {
+        // When button submits form and form is in the process of submitting, submit button is disabled
+        setSubmitting(true);
 
-      // Resets form after submission is complete
-      resetForm();
+        // Resets form after submission is complete
+        resetForm();
 
-      // Sets setSubmitting to false after form is reset
-      setSubmitting(false);
-    }} validationSchema={schema} initialValues={{
-      name: '',
-      contact: '',
-      message: ''
-    }}>
-      {({
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit
-        }) => (
-        <Form onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}>
-          <FormBody errors={errors} touched={touched} handleBlur={handleBlur} handleChange={handleChange}/>
-          <Button variant="primary" type="submit">
-            {t('contact.submit')}
-          </Button>
-        </Form>
-      )}
-    </Formik>
+        // Sets setSubmitting to false after form is reset
+        setSubmitting(false);
+      }} validationSchema={schema} initialValues={{
+        name: '',
+        contact: '',
+        message: ''
+      }}>
+        {({
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit
+          }) => (
+          <Form onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}>
+            <FormBody errors={errors} touched={touched} handleBlur={handleBlur} handleChange={handleChange}/>
+            <Button variant="primary" type="submit">
+              {t('contact.submit')}
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 }
 

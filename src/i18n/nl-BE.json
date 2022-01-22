@@ -22,7 +22,7 @@
         "nav": "Vergelijken/Berekenen",
         "mainAction": "Berekening aanvragen",
         "contact": "Contact",
-        "car": "Auto",
+        "car": "Uw huidige of nieuwe auto",
         "fields": {
             "firstName": "Voornaam",
             "lastName": "Achternaam",
@@ -42,7 +42,7 @@
             "attachmentsDrag": "Sleep een bestand of klik hier om een bestand te selecteren",
             "yes": "Ja",
             "no": "Neen",
-            "carInfo": "Hoe vollediger u deze gegevens kan doorgeven, kunnen wij een nauwkeurigere berekening maken.",
+            "carInfo": "Hoe meer gegevens u kan doorgeven, hoe nauwkeurigere wij uw berekening kunnen maken.",
             "contactInfo": "We gebruiken deze gegevens om u te contacteren nadat we de vergelijking gemaakt hebben of als we cruciale gegevens ontbreken.",
             "contactPrivacy": "Uw gegevens worden niet gebruikt voor reclame of enige andere doeleinden. Lees meer over ons",
             "contactLink": "privacybeleid"
@@ -57,6 +57,11 @@
         "contact": "Telefoon of Email"
     },
     "validation": {
-        "required": "Verplicht veld"
+        "required": "Verplicht veld",
+        "moreThanOrEqualsZero": "Moet groter of gelijk aan 0 zijn"
+    },
+    "wizard": {
+        "next": "Volgende",
+        "previous": "Vorige"
     }
 }

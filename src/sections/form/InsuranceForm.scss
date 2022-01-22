@@ -1,0 +1,44 @@
+@import 'src/styles/bootstrap';
+
+#InsuranceForm {
+  margin: auto;
+  background-color: white;
+  overflow: hidden;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  max-width: 800px;
+
+  h5 {
+    font-size: 1.2rem;
+    color: map-get($theme-colors, 'primary');
+    text-align: center;
+    margin: auto;
+    margin-bottom: 5px;
+
+    + p{
+      text-align: center;
+      margin: auto;
+      margin-bottom: 40px;
+      white-space: pre-wrap;
+    }
+  }
+
+  .privacy {
+    text-decoration: underline;
+  }
+}
+
+.wizard-btn-row-single {
+  display: flex;
+  justify-content: right;
+}
+
+.wizard-btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.animated {
+  animation-duration: .3s !important;
+}

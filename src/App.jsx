@@ -1,6 +1,6 @@
 import MainSection from "./sections/main/MainSection";
 import AboutSection from "./sections/about/AboutSection";
-import FormSection from "./sections/form/FormSection";
+import InsuranceForm from "./sections/form/InsuranceForm";
 import ContactSection from "./sections/contact/ContactSection";
 import React, {useEffect, useRef, useState} from "react";
 import {scrollToRef} from "./utils/window";
@@ -62,7 +62,6 @@ function App() {
       </Navbar>
       <MainSection reference={refMain} toAbout={() => scrollToRef(refAbout)} />
       <AboutSection reference={refAbout} />
-      <FormSection reference={refForm} />
       <ContactSection reference={refContact} />
     </div>
   );
