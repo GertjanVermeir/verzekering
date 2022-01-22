@@ -33,21 +33,21 @@ const FormContact = ({ validationProps, errors = {}, previousStep }) => {
             </Form.Group>
           </Row>
           <Row>
-            <Form.Group as={Col} lg="3" controlId="birthDate">
+            <Form.Group as={Col} xs="3" controlId="birthDate">
               <Form.Label>{t('form.fields.birthDate')} *</Form.Label>
               <Form.Control placeholder="jjjj" {...validationProps('birthDate')} />
               <Form.Control.Feedback type="invalid">
                 {t(errors.birthDate)}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} lg="3" controlId="postalCode">
+            <Form.Group as={Col} xs="3" controlId="postalCode">
               <Form.Label>{t('form.fields.postalCode')} *</Form.Label>
               <Form.Control type="text" {...validationProps('postalCode')} />
               <Form.Control.Feedback type="invalid">
                 {t(errors.postalCode)}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} lg="6" controlId="contactType">
+            <Form.Group as={Col} xs="6" controlId="contactType">
               <Form.Label>{t('form.fields.contactType')} *</Form.Label>
               <Form.Control type="text"{...validationProps('contactType')} />
               <Form.Control.Feedback type="invalid">
