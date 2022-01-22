@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/verzekering/static/css/main.206ef920.chunk.css",
+    "main.js": "/verzekering/static/js/main.0e0eb4c0.chunk.js",
+    "main.js.map": "/verzekering/static/js/main.0e0eb4c0.chunk.js.map",
+    "runtime-main.js": "/verzekering/static/js/runtime-main.f99aa01b.js",
+    "runtime-main.js.map": "/verzekering/static/js/runtime-main.f99aa01b.js.map",
+    "static/js/2.54e7c24e.chunk.js": "/verzekering/static/js/2.54e7c24e.chunk.js",
+    "static/js/2.54e7c24e.chunk.js.map": "/verzekering/static/js/2.54e7c24e.chunk.js.map",
+    "static/js/3.fae857c6.chunk.js": "/verzekering/static/js/3.fae857c6.chunk.js",
+    "static/js/3.fae857c6.chunk.js.map": "/verzekering/static/js/3.fae857c6.chunk.js.map",
+    "index.html": "/verzekering/index.html",
+    "static/css/main.206ef920.chunk.css.map": "/verzekering/static/css/main.206ef920.chunk.css.map",
+    "static/js/2.54e7c24e.chunk.js.LICENSE.txt": "/verzekering/static/js/2.54e7c24e.chunk.js.LICENSE.txt",
+    "static/media/logo_white.8878a289.svg": "/verzekering/static/media/logo_white.8878a289.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f99aa01b.js",
+    "static/js/2.54e7c24e.chunk.js",
+    "static/css/main.206ef920.chunk.css",
+    "static/js/main.0e0eb4c0.chunk.js"
+  ]
+}
