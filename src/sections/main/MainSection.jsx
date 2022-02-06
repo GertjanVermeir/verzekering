@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/cjs/Col";
 import InsuranceForm from "../form/InsuranceForm";
 
+import("./MainSection.scss");
+
 const MainSection = ({ toAbout, reference }) => {
   return (
     <Section id="MainSection" reference={reference}>
@@ -17,13 +19,6 @@ const MainSection = ({ toAbout, reference }) => {
               u vaker een scherper tarief aanbieden, maar ook de juiste keuze helpen maken.</h2>
           </Col>
         </Row>
-        {/*<Button onClick={() => toAbout()}>*/}
-        {/*  Vergelijken*/}
-        {/*</Button>*/}
-        {/*{' '}*/}
-        {/*<Button variant="light">*/}
-        {/*  Nieuwe aanvraag*/}
-        {/*</Button>*/}
         <InsuranceForm />
       </Container>
     </Section>

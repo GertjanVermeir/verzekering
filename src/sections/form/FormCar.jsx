@@ -39,7 +39,7 @@ const FormCar = ({ validationProps, errors, nextStep, setIsSubmitting }) => {
             </Form.Group>
             <Form.Group as={Col} controlId="carDriversLicenseDate">
               <Form.Label>{t('form.fields.carDriversLicenseDate')}</Form.Label>
-              <Form.Control placeholder="dd/mm/jjjj" {...validationProps('carDriversLicenseDate')} />
+              <Form.Control type="date" placeholder="dd/mm/jjjj" {...validationProps('carDriversLicenseDate')} />
               <Form.Control.Feedback type="invalid">
                 {t(errors.carDriversLicenseDate)}
               </Form.Control.Feedback>

@@ -20,7 +20,7 @@ const AboutSection = ({ reference }) => {
             <p>
               {t('about.text1')}
               {' '}
-               <a href={t('url')} target="_blank">{t('url')}</a>
+               <a href={t('url')} rel="noreferrer" target="_blank">{t('url')}</a>
             </p>
           </Col>
         </Row>

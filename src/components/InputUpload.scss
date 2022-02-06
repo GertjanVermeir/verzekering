@@ -1,0 +1,94 @@
+@import "src/styles/bootstrap";
+
+.file-upload {
+  max-width: 800px;
+  .field-input {
+    width: 100%;
+    background: white;
+    border: 1px solid #AAA;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+
+  .hc-file-input-dropzone {
+    &:hover {
+      cursor: pointer;
+      background: #fafafa;
+      .file-placeholder {
+        opacity: 1;
+      }
+    }
+    outline: none !important;
+    min-height: 50px;
+    border: 1px dashed #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 20px;
+
+    .file-placeholder {
+      opacity: 0.5;
+    }
+
+    &.hc-file-input-dropzone-active {
+      background: #fafafa;
+      justify-content: left;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &:hover {
+        cursor: default;
+      }
+
+      .file-icon {
+        font-size: 21px;
+        color: #BBB;
+        margin-right: 10px;
+      }
+
+      .file-remove {
+        justify-self: right;
+        color: #BBB;
+        margin-left: 15px;
+        &:hover {
+          color: map_get($theme-colors, 'danger');
+          cursor: pointer;
+        }
+      }
+      .file-disabled {
+        justify-self: right;
+        color: #BBB;
+      }
+    }
+
+    .file-row {
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      + .file-placeholder, +.file-row {
+        margin-top: 15px;
+      }
+    }
+
+    .file-placeholder {
+      width: 100%;
+    }
+
+    .btn-file-link {
+      outline: none !important;
+      border: none !important;
+      background: none !important;
+      padding: 0;
+      margin-left: 2px;
+      color: #009dff !important;
+    }
+
+    .file-check {
+      color: map_get($theme-colors, 'success');
+      margin-right: 10px;
+    }
+  }
+}

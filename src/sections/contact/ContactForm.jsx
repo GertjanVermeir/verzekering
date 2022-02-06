@@ -87,9 +87,11 @@ const ContactForm = () => {
             handleSubmit();
           }}>
             <FormBody errors={errors} touched={touched} handleBlur={handleBlur} handleChange={handleChange}/>
-            <Button variant="primary" type="submit">
-              {t('contact.submit')}
-            </Button>
+            <div className="contact-action">
+              <Button variant="primary" type="submit">
+                {t('contact.submit')}
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>

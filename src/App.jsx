@@ -1,6 +1,5 @@
 import MainSection from "./sections/main/MainSection";
 import AboutSection from "./sections/about/AboutSection";
-import InsuranceForm from "./sections/form/InsuranceForm";
 import ContactSection from "./sections/contact/ContactSection";
 import React, {useEffect, useRef, useState} from "react";
 import {scrollToRef} from "./utils/window";
@@ -24,6 +23,7 @@ function App() {
   const refContact = useRef();
   const { t } = useTranslation();
   const [header, setHeader] = useState("")
+  const [expand, setExpand] = useState(false)
 
   const listenScrollEvent = (event) => {
     if (window.scrollY < 150) {
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar className={`main-nav ${header}`} expand="lg" fixed="top">
+      <Navbar className={`main-nav ${header}`} expand="lg" fixed="top" variant="dark" expanded={expand} onToggle={() => setExpand(!expand)}>
         <Container>
           <Navbar.Brand href="#home" onClick={() => scrollToRef(refMain)}>
             <img src={Logo} id="MainLogo" alt="Logo Financieel Adviesburo" />
@@ -52,10 +52,19 @@ function App() {
             <Nav className="me-auto">
             </Nav>
             <Nav>
-              <Nav.Link onClick={() => scrollToRef(refAbout)}>{t('about.nav')}</Nav.Link>
-              <Nav.Link onClick={() => scrollToRef(refContact)}>{t('contact.nav')}</Nav.Link>
-              <LanguageToggle />
-              <Nav.Link as={Button} variant="outline-light" onClick={() => scrollToRef(refForm)}>{t('form.nav')}</Nav.Link>
+              <Nav.Link onClick={() => {
+                scrollToRef(refAbout);
+                setExpand(false);
+              }}>{t('about.nav')}</Nav.Link>
+              <Nav.Link onClick={() => {
+                scrollToRef(refContact);
+                setExpand(false)
+              }}>{t('contact.nav')}</Nav.Link>
+              <LanguageToggle onClick={() => setExpand(false)} />
+              <Nav.Link as={Button} variant="outline-light" onClick={() => {
+                scrollToRef(refForm);
+                setExpand(false)
+              }}>{t('form.nav')}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

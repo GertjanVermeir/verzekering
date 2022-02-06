@@ -12,7 +12,7 @@ const FormContact = ({ validationProps, errors = {}, previousStep }) => {
       <h5>{t('form.contact')}</h5>
       <p>
         {t('form.fields.contactInfo')}<br />
-        {t('form.fields.contactPrivacy')} <a className="privacy" href="#">{t('form.fields.contactLink')}</a>
+        {t('form.fields.contactPrivacy')} <a rel="noreferrer" className="privacy" href="#">{t('form.fields.contactLink')}</a>
       </p>
       <Row className="mb-3">
         <Col lg="12">
@@ -58,7 +58,7 @@ const FormContact = ({ validationProps, errors = {}, previousStep }) => {
         </Col>
       </Row>
       <div className="wizard-btn-row">
-        <Button variant="primary" type="button" onClick={previousStep}>
+        <Button variant="link" type="button" onClick={previousStep}>
           {t('wizard.previous')}
         </Button>
         <Button variant="primary" type="submit">

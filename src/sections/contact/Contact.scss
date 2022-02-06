@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 #ContactForm {
   margin: auto;
   background-color: white;
@@ -18,5 +20,20 @@
   p {
     color: white;
     text-align: center;
+  }
+
+  @include for-tablet-portrait-down {
+    .btn-primary {
+      display: block;
+      width: 100%;
+    }
+
+    .col-lg-6:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .contact-action {
+    text-align: right;
   }
 }

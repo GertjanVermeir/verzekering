@@ -1,3 +1,5 @@
+@import 'src/styles/mixins';
+
 .page-section {
   background-color: white;
   min-height: 100vh;
@@ -13,10 +15,17 @@
     font-weight: 300;
     margin: auto;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   p {
     color: #777777;
+    margin-bottom: 40px;
+  }
+
+  @include for-tablet-portrait-down {
+    h2 {
+      margin-bottom: 20px;
+    }
   }
 }

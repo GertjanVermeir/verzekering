@@ -26,7 +26,7 @@ const scrollTo = (top, offset = 0) => {
   }
 };
 
-const scrollToRef = (ref, offset = 0) => {
+const scrollToRef = (ref, offset = 75) => {
   if (ref) {
     scrollTo(getRefDomBounding(ref).top, offset + SCROLL_TOP_WHITE_SPACE);
   }

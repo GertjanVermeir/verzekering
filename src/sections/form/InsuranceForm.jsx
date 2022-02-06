@@ -6,7 +6,6 @@ import {object, string, number} from 'yup';
 import './InsuranceForm.scss';
 
 import {Formik} from "formik";
-import {useTranslation} from "react-i18next";
 import StepWizard from "react-step-wizard";
 import FormCar from "./FormCar";
 import FormContact from "./FormContact";
@@ -23,10 +22,10 @@ const contactSchema = object({
 const carSchema = object({
   carBrand: string().required('validation.required'),
   carType: string().required('validation.required'),
-  carKilowatt: number().positive('validation.moreThanOrEqualsZero'),
+  carKilowatt: number().min(0, 'validation.moreThanOrEqualsZero'),
   carDriversLicenseDate: string(),
   carHasOmnium: string(),
-  carAccidents: number().min(0, 'validation.moreThanOrEqualsZero').integer().required('validation.required')
+  carAccidents: number().integer().required('validation.required')
 });
 
 
