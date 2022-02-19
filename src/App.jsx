@@ -19,7 +19,6 @@ function App() {
 
   const refMain = useRef();
   const refAbout = useRef();
-  const refForm = useRef();
   const refContact = useRef();
   const { t } = useTranslation();
   const [header, setHeader] = useState("")
@@ -62,7 +61,7 @@ function App() {
               }}>{t('contact.nav')}</Nav.Link>
               <LanguageToggle onClick={() => setExpand(false)} />
               <Nav.Link as={Button} variant="outline-light" onClick={() => {
-                scrollToRef(refForm);
+                scrollToRef(refMain);
                 setExpand(false)
               }}>{t('form.nav')}</Nav.Link>
             </Nav>

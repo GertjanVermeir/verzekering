@@ -68,5 +68,9 @@
     "file": {
         "placeholder": "Bestand slepen, of ",
         "browse": "bladeren"
+    },
+    "privacy": {
+        "title": "Privacybeleid",
+        "close": "Sluiten"
     }
 }

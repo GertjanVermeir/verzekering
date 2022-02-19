@@ -1,18 +1,23 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/cjs/Col";
 import Form from "react-bootstrap/Form";
-import React from "react";
+import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import Button from "react-bootstrap/cjs/Button";
+import PrivacyPage from "../../components/PrivacyPage";
 
 const FormContact = ({ validationProps, errors = {}, previousStep }) => {
   const {t}  = useTranslation();
+  const [showPrivacy, setShowPrivacy]  = useState(false);
   return (
     <div>
+      {
+        showPrivacy ? <PrivacyPage onHide={() => setShowPrivacy(false)} /> : null
+      }
       <h5>{t('form.contact')}</h5>
       <p>
         {t('form.fields.contactInfo')}<br />
-        {t('form.fields.contactPrivacy')} <a rel="noreferrer" className="privacy" href="#">{t('form.fields.contactLink')}</a>
+        {t('form.fields.contactPrivacy')} <a rel="noreferrer" className="privacy" onClick={() => setShowPrivacy(true)} href="#">{t('form.fields.contactLink')}</a>
       </p>
       <Row className="mb-3">
         <Col lg="12">
