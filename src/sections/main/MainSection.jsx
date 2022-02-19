@@ -14,6 +14,7 @@ const MainSection = ({ toAbout, reference }) => {
         <Row>
           <Col lg="12">
             <h1>Autoverzekering onafhankelijk laten vergelijken</h1>
+            <h1>(WEBSITE IN OPBOUW)</h1>
             <h2>Onze deskundige verzekeraars bekijken uw situatie op maat en niet op basis van een simulatie.<br/>
               Hierdoor kunnen wij
               u vaker een scherper tarief aanbieden, maar ook de juiste keuze helpen maken.</h2>

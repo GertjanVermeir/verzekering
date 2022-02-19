@@ -13,6 +13,9 @@ import {useTranslation} from "react-i18next";
 import setupAndInitI18n from "./i18n/i18nSetup";
 import LanguageToggle from "./components/LanguageToggle";
 
+import ReactGa from 'react-ga';
+
+ReactGa.initialize("G-XGE0QBFDMS");
 setupAndInitI18n();
 
 function App() {
