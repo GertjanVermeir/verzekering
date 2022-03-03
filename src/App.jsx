@@ -16,6 +16,8 @@ import LanguageToggle from "./components/LanguageToggle";
 import ReactGa from 'react-ga';
 
 ReactGa.initialize("G-XGE0QBFDMS");
+ReactGa.pageview(window.location.pathname + window.location.search);
+
 setupAndInitI18n();
 
 function App() {

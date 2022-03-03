@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Form from "react-bootstrap/Form";
 
 import {object, string, number} from 'yup';
@@ -10,6 +10,12 @@ import StepWizard from "react-step-wizard";
 import FormCar from "./FormCar";
 import FormContact from "./FormContact";
 import FormFile from "./FormFile";
+import ReactGa from "react-ga";
+import axios from "axios";
+import {scrollToRef} from "../../utils/window";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck} from "@fortawesome/free-solid-svg-icons/faCheck";
+import {useTranslation} from "react-i18next";
 
 const contactSchema = object({
   lastName: string().required('validation.required'),
@@ -40,8 +46,6 @@ const FormBody = ({
                     setIsSubmitting
   }) => {
 
-  console.log(isSubmitted);
-
   const validationProps = (name) => ({
     onChange: handleChange,
     onBlur: handleBlur,
@@ -59,7 +63,6 @@ const FormWrapper = ({
   children
 }) => {
   const [isSubmitted, setIsSubmitting] = useState(false);
-  console.log(isSubmitted);
   return (
     <Formik
       onSubmit={(values) => {
@@ -90,27 +93,100 @@ const FormWrapper = ({
 
 const InsuranceForm = () => {
   const [carData, setCarData] = useState();
-  const [contactData, setContactData] = useState();
   const [fileData, setFileData] = useState();
+  const [t] = useTranslation();
+
+  const [mailSent, setmailSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const refForm = useRef();
+
+
+  const submitForm = (contactData) => {
+    // When button submits form and form is in the process of submitting, submit button is disabled
+    setSubmitting(true);
+
+    const formData = new FormData();
+    formData.append('name', `${contactData.lastName} ${contactData.firstName}`);
+    formData.append('message', JSON.stringify({ carData, contactData }, null, 2));
+
+    const files = fileData?.files || [];
+    files.forEach((file) => {
+      formData.append("files[]", file);
+    })
+
+    ReactGa.event("send", "ContactError", { 'exDescription': "TEST" })
+
+    axios({
+      method: "post",
+      url:  process.env.PUBLIC_URL + '/insurance2.php',
+      headers: {
+        'content-type': 'multipart/form-data'
+      },
+      data: formData
+    })
+      .then(result => {
+        if (!result.data) {
+          setmailSent(true);
+          setError(false);
+          scrollToRef(refForm);
+        } else {
+          setError(true)
+        }
+        setSubmitting(false);
+      })
+      .catch(error => {
+        scrollToRef(refForm);
+        setError(error);
+        setSubmitting(false);
+      });
+  };
+
   return (
-    <div id="InsuranceForm">
-      <StepWizard>
-        <FormWrapper validation={carSchema} onSubmit={(values, goToNextStep) => {
-          setCarData(values);
-          goToNextStep();
-        }}>
-          <FormCar stepName="car" />
-        </FormWrapper>
-        <FormWrapper onSubmit={(values, goToNextStep) => {
-          setContactData(values);
-          goToNextStep();
-        }}>
-          <FormFile />
-        </FormWrapper>
-        <FormWrapper validation={contactSchema} onSubmit={(values, goToNextStep) => {}}>
-          <FormContact />
-        </FormWrapper>
-      </StepWizard>
+    <div id="InsuranceForm" ref={refForm}>
+      {error ? (
+        <div className="text-break">
+          {t('contact.error')}
+          <br/>
+          {t('contact.error2')}
+        </div>
+      ) : null}
+      {
+        mailSent && !error ? (
+          <div className="text-center">
+            <FontAwesomeIcon className="me-2" icon={faCheck} />
+            {t('form.success')}
+          </div>
+        ) : null
+      }
+      {
+        !mailSent && !error ? (
+          <StepWizard>
+            {/*<FormWrapper validation={carSchema} onSubmit={(values, goToNextStep) => {*/}
+            <FormWrapper onSubmit={(values, goToNextStep) => {
+              setCarData(values);
+              goToNextStep();
+              scrollToRef(refForm);
+            }}>
+              <FormCar stepName="car" />
+            </FormWrapper>
+            <FormWrapper onSubmit={(values, goToNextStep) => {
+              setFileData(values);
+              goToNextStep();
+              scrollToRef(refForm);
+            }}>
+              <FormFile />
+            </FormWrapper>
+            {/*<FormWrapper validation={contactSchema} onSubmit={(values, goToNextStep) => {*/}
+            <FormWrapper onSubmit={(values, goToNextStep) => {
+              submitForm(values);
+            }}>
+              <FormContact submitting={submitting} />
+            </FormWrapper>
+          </StepWizard>
+        ): null
+      }
     </div>
   )
 };

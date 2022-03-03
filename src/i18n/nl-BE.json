@@ -1,5 +1,9 @@
 {
     "url": "www.financieel-adviesburo.be",
+    "main": {
+        "title": "Autoverzekering onafhankelijk laten vergelijken",
+        "subTitle": "Onze deskundige verzekeraars bekijken uw situatie op maat en niet op basis van een simulatie.\nHierdoor kunnen wij u vaker een scherper tarief aanbieden, maar ook de juiste keuze helpen maken."
+    },
     "about": {
         "title": "Waarom bij ons vergelijken?",
         "nav": "Over ons",
@@ -18,6 +22,7 @@
         }
     },
     "form": {
+        "success": "Uw aanvraag werd goed verzonden. We nemen zo snel mogelijk contact met u op.",
         "title": "Autoverzekering vergelijken of berekening nieuwe wagen",
         "nav": "Vergelijken/Berekenen",
         "mainAction": "Berekening aanvragen",
@@ -50,11 +55,18 @@
     },
     "contact": {
         "title": "Andere vragen? Contacteer ons!",
+        "description": "Verzekeringen zijn een complexe materie. Zonder gedegen kennis van zaken is het haast onmogelijk om een goede oplossing op maat te vinden. Als specialist terzake, kunnen we u optimaal begeleiden in de zoektocht naar oplossingen in alle domeinen",
+        "addressInfo": "Lokerenveldstraat, 57/2 - 9300 Aalst",
+        "contactInfo": "(+32) 053 21 29 99 - jan@financieel-adviesburo.be",
         "nav": "Contact",
         "submit": "Opsturen",
         "message": "Bericht",
         "name": "Naam",
-        "contact": "Telefoon of Email"
+        "contact": "Telefoon of Email",
+        "success": "Uw vraag werd goed verzonden. We nemen zo snel mogelijk contact met u op.",
+        "error": "Er is een fout gebeurd bij het versturen van uw bericht.",
+        "error2": "Gelieve ons te verwittigen op info@auto-verzekering-vergelijken.be",
+        "footer": "© Copyright Financieel Adviesbureau. All Rights Reserved"
     },
     "validation": {
         "required": "Verplicht veld",

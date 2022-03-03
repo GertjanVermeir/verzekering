@@ -5,8 +5,11 @@ import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import Button from "react-bootstrap/cjs/Button";
 import PrivacyPage from "../../components/PrivacyPage";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck} from "@fortawesome/free-solid-svg-icons/faCheck";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons/faSpinner";
 
-const FormContact = ({ validationProps, errors = {}, previousStep }) => {
+const FormContact = ({ validationProps, errors = {}, previousStep, setIsSubmitting, submitting }) => {
   const {t}  = useTranslation();
   const [showPrivacy, setShowPrivacy]  = useState(false);
   return (
@@ -66,7 +69,8 @@ const FormContact = ({ validationProps, errors = {}, previousStep }) => {
         <Button variant="link" type="button" onClick={previousStep}>
           {t('wizard.previous')}
         </Button>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={submitting} onClick={() => setIsSubmitting(true)}>
+          {submitting ? <FontAwesomeIcon className="me-2" spin icon={faSpinner} /> : null}
           {t('form.mainAction')}
         </Button>
       </div>

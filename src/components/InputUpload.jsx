@@ -24,7 +24,8 @@ const InputUpload = ({
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    multiple: true
+    multiple: true,
+    url: window.location + "/file-upload.php",
   });
 
   const remove = (name) => {
@@ -40,7 +41,7 @@ const InputUpload = ({
         >
           <input {...getInputProps()} />
           {acceptedFiled ? acceptedFiled.map(file => (
-            <div className="file-row">
+            <div className="file-row" key={file.path}>
               <FontAwesomeIcon
                 className="file-check"
                 icon={faCheck}

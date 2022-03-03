@@ -5,7 +5,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import Button from "react-bootstrap/cjs/Button";
 
-const FormCar = ({ validationProps, errors, nextStep, setIsSubmitting }) => {
+const FormCar = ({ validationProps, errors, setIsSubmitting }) => {
   const {t}  = useTranslation();
   return (
     <div>

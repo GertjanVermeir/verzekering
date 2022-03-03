@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/cjs/Button";
 import {Formik} from "formik";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/cjs/Col";
+import ReactGa from 'react-ga';
+
 
 import { object, string } from 'yup';
 import {useTranslation} from "react-i18next";
+import axios from "axios";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons/faSpinner";
+import {faCheck} from "@fortawesome/free-solid-svg-icons/faCheck";
+import {scrollToRef} from "../../utils/window";
 
 const schema = object({
   name: string().required('validation.required'),
@@ -59,14 +66,38 @@ const FormBody = ({
 
 const ContactForm = () => {
   const { t } = useTranslation();
+  const [mailSent, setmailSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const refForm = useRef();
+
   return (
-    <div id="ContactForm">
-      <Formik onSubmit={(values, {setSubmitting, resetForm}) => {
+    <div id="ContactForm" ref={refForm}>
+      <Formik onSubmit={(values, {}) => {
         // When button submits form and form is in the process of submitting, submit button is disabled
         setSubmitting(true);
 
-        // Resets form after submission is complete
-        resetForm();
+        ReactGa.event("send", "ContactError", { 'exDescription': "TEST" })
+
+        axios({
+          method: "post",
+          url:  process.env.PUBLIC_URL + '/contact2.php',
+          headers: { "content-type": "application/json" },
+          data: values
+        })
+          .then(result => {
+            if (!result.data) {
+              setmailSent(true)
+              setError(false)
+              scrollToRef(refForm);
+            } else {
+              setError(true)
+            }
+          })
+          .catch(error => {
+            scrollToRef(refForm);
+            setError(error)
+          });
 
         // Sets setSubmitting to false after form is reset
         setSubmitting(false);
@@ -86,12 +117,34 @@ const ContactForm = () => {
             e.preventDefault();
             handleSubmit();
           }}>
-            <FormBody errors={errors} touched={touched} handleBlur={handleBlur} handleChange={handleChange}/>
-            <div className="contact-action">
-              <Button variant="primary" type="submit">
-                {t('contact.submit')}
-              </Button>
-            </div>
+            {error ? (
+              <div className="text-break">
+                {t('contact.error')}
+                <br/>
+                {t('contact.error2')}
+              </div>
+            ) : null}
+            {
+              mailSent && !error ? (
+                <div className="text-center">
+                  <FontAwesomeIcon className="me-2" icon={faCheck} />
+                  {t('contact.success')}
+                </div>
+              ) : null
+            }
+            {
+              !mailSent && !error ? (
+                <>
+                  <FormBody errors={errors} touched={touched} handleBlur={handleBlur} handleChange={handleChange}/>
+                  <div className="contact-action">
+                    <Button variant="primary" type="submit" disabled={submitting}>
+                      {submitting ? <FontAwesomeIcon className="me-2" icon={faSpinner} spin/> : null}
+                      {t('contact.submit')}
+                    </Button>
+                  </div>
+                </>
+              ) : null
+            }
           </Form>
         )}
       </Formik>

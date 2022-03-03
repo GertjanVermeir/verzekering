@@ -3,8 +3,8 @@ import BootstrapContainer from 'react-bootstrap/Container';
 
 import "./Container.scss";
 
-const Container = ({ children }) => (
-  <BootstrapContainer>
+const Container = ({ children, id }) => (
+  <BootstrapContainer id={id}>
     { children }
   </BootstrapContainer>
 );
